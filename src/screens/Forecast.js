@@ -1,24 +1,63 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Text} from "react-native";
-import ColumnTxt from "../components/ColumnTxt";
-import { Feather } from '@expo/vector-icons';
+import { View, StyleSheet, SafeAreaView, Text, FlatList} from "react-native";
+import ListItem from "../components/listItem";
+
+const DATA = [
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    }, 
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+    {
+        day: 'Friday',
+        date: 'May 37',
+        temp: '20',
+    },
+
+]
 
 const Forecast = () => {
+    const renderItem = ({item}) => (
+        <ListItem
+            day = {item.day}
+            date = {item.date}
+            temp = {item.temp}
+        />
+    )
+
     return (
         <SafeAreaView style = {styles.container}>
             <Text style= {styles.title}>Forecast Report</Text>
-            <View style = {styles.row}>
-                <ColumnTxt
-                    style = {styles.time}
-                    txtTop = {'Friday'}
-                    txtBottom = {'May 28'}
-                />
+            <FlatList
+                data={DATA}
+                renderItem={renderItem}
+            />
 
-                <Text style = {styles.temp}>{`32°`}</Text>
-
-                <Feather style={styles.icon} name={'sun'} size={60} color={'white'}/>
-
-            </View>
         </SafeAreaView>
     )
 }
@@ -35,31 +74,6 @@ const styles = StyleSheet.create({
         color: 'white',
         alignSelf: 'center'  
     },
-    row: {
-        
-        backgroundColor: '#003869',
-        borderRadius: 30,
-        margin: 10,
-        padding: 5,
-        flexDirection: 'row',
-        gap: 30,
-        justifyContent: 'space-around'
-    },
-    time: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 15
-    },
-    temp: {
-        padding: 15,
-        alignSelf: 'center',
-        color: 'white',
-        fontSize: 45,
-        fontWeight: 'bold'
-    },
-    icon: {
-        padding: 15,
-        alignSelf: 'center'
-    }
+    
 })
 export default Forecast
