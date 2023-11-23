@@ -1,52 +1,16 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, FlatList} from "react-native";
 import ListItem from "../components/listItem";
+import moment from "moment";
 
-const DATA = [
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    }, 
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
-    {
-        day: 'Friday',
-        date: 'May 37',
-        temp: '20',
-    },
+const Forecast = ({weather}) => {
+    console.log(`forecast ${weather}`)
 
-]
-
-const Forecast = ({weatherData}) => {
     const renderItem = ({item}) => (
         <ListItem
-            day = {item.day}
-            date = {item.date}
-            temp = {item.temp}
+            day = {moment(item.dt).format('dddd')}
+            date = {moment(item.dt).format('MMM Do')}
+            temp = {item.main.temp}
         />
     )
 
@@ -54,7 +18,7 @@ const Forecast = ({weatherData}) => {
         <SafeAreaView style = {styles.container}>
             <Text style= {styles.title}>Forecast Report</Text>
             <FlatList
-                data={DATA}
+                data={weather}
                 renderItem={renderItem}
             />
 

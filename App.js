@@ -7,7 +7,8 @@ import { useGetWeather } from './src/Hook/useGetWeather';
 export default function App() {
   const [loading, error, weather] = useGetWeather()
 
-  console.log( weather )
+  console.log( `app ${Object.keys(weather)}`)
+  console.log(weather.cod)
 
   if (loading)
   {
@@ -24,7 +25,7 @@ export default function App() {
   {
     return (
       <NavigationContainer  style= {styles.container}>
-        <Tabs weatherData = {weather}/>
+        <Tabs weather = {weather}/>
       </NavigationContainer>
     );
   }

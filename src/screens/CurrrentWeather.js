@@ -2,29 +2,32 @@ import React from "react";
 import { View, Text, StyleSheet,SafeAreaView } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
+import moment from "moment";
 
-const CurrentWeather = ({weatherdata}) => {
-    console.log(weatherdata)
+const CurrentWeather = ({ weather }) => {
+    // console.log(`current ${weather.city}`)
+    const {list,city,} = weather
     return(
         <SafeAreaView style ={styles.container}>
-            <Text style= {styles.cityName}>{`Nairobi`}</Text>
-            <Text style={styles.time}>November 22, 2023</Text>
+            <Text style= {styles.cityName}>{`${city.name}`}</Text>
+            <Text style={styles.time}>{moment(list[0].dt).format('dddd')}</Text>
+
 
             <Feather style={styles.icon} name={'sun'} size={250} color={'white'}/>
             <View style = {styles.row}>
                 <ColumnTxt
                     txtTop = {'temp'}
-                    txtBottom = {'32°'}
+                    txtBottom = {list.main.temp}
                 />
 
                 <ColumnTxt
                     txtTop = {'Wind'}
-                    txtBottom = {`10km/h`}
+                    txtBottom = {list.wind.speed}
                 />
 
                 <ColumnTxt
                     txtTop = {'Humidity'}
-                    txtBottom = {`75%`}
+                    txtBottom = {list.main.humidity}
                 />                           
             </View>
 

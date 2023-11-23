@@ -2,27 +2,27 @@ import react from "react";
 import { StyleSheet } from "react-native";
 import CurrentWeather from "../screens/CurrrentWeather";
 import Forecast from "../screens/Forecast";
-import { NavigationContainer } from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
 
 const Tab = createBottomTabNavigator()
 
-const Tabs = ({weatherData}) => {;
-    return (
+const Tabs = ({ weather }) => {
+    console.log(`Tabs ${weather}`)
+    return ( 
         <Tab.Navigator
             
         >
           <Tab.Screen
             name={'Current'}
           >
-            {() => <CurrentWeather weatherData= {weatherData.city}/>}
+            {() => <CurrentWeather weather= {weather}/>}
           </Tab.Screen>
   
           <Tab.Screen
             name={'Forecast'}
           >
-            {() => <Forecast weatherData = {weatherData.list}/>}
+            {() => <Forecast weather = {weather.list}/>}
           </Tab.Screen> 
   
         </Tab.Navigator>
