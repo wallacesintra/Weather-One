@@ -3,10 +3,11 @@ import { View, Text, StyleSheet,SafeAreaView } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({weatherdata}) => {
+    console.log(weatherdata)
     return(
         <SafeAreaView style ={styles.container}>
-            <Text style= {styles.cityName}>Nairobi</Text>
+            <Text style= {styles.cityName}>{`Nairobi`}</Text>
             <Text style={styles.time}>November 22, 2023</Text>
 
             <Feather style={styles.icon} name={'sun'} size={250} color={'white'}/>

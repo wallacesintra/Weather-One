@@ -1,42 +1,46 @@
-
-import { StyleSheet, Text, View, } from 'react-native';
-import CurrentWeather from './src/screens/CurrrentWeather';
-import Forecast from './src/screens/Forecast';
+import React from 'react'
+import { StyleSheet,ActivityIndicator} from 'react-native';
+import Tabs from './src/components/Tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-
-const Tab = createBottomTabNavigator()
+import { useGetWeather } from './src/Hook/useGetWeather';
 
 export default function App() {
-  return (
-    // <View style={styles.container}>
-    //   <Forecast/>
-    // </View>
+  const [loading, error, weather] = useGetWeather()
 
-    <NavigationContainer style= {styles.container}>
-      <Tab.Navigator>
-        <Tab.Screen
-          name={'Current'}
-        >
-          {() => <CurrentWeather/>}
-        </Tab.Screen>
+  console.log( weather )
 
-        <Tab.Screen
-          name={'Forecast'}
-        >
-          {() => <Forecast/>}
-        </Tab.Screen> 
+  if (loading)
+  {
+    return(
+      <ActivityIndicator
+        style = {styles.loader}
+        size={'large'}
+        color={'blue'}
+      />
+    )
+  }
 
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+  if (weather)
+  {
+    return (
+      <NavigationContainer  style= {styles.container}>
+        <Tabs weatherData = {weather}/>
+      </NavigationContainer>
+    );
+  }
+
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
     alignItems: 'center',
     justifyContent: 'center',
   },
+  loader: {
+    flex: 1,
+    justifyContent: 'center'
+  }
 });
+

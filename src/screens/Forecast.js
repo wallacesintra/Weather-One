@@ -41,7 +41,7 @@ const DATA = [
 
 ]
 
-const Forecast = () => {
+const Forecast = ({weatherData}) => {
     const renderItem = ({item}) => (
         <ListItem
             day = {item.day}
