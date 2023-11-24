@@ -13,7 +13,7 @@ const ListItem = (props) => {
             txtBottom = {`${date}`}
         />
 
-        <Text style = {styles.temp}>{`${Math.round(temp)}°`}</Text>
+        <Text style = {styles.temp}>{`${temp}°`}</Text>
 
         <Feather style={styles.icon} name={icon} size={60} color={'white'}/>
 

@@ -4,9 +4,8 @@ import ListItem from "../components/listItem";
 import moment from "moment";
 import { weatherType } from "../utilities/weatherType";
 
-
 const Forecast = ({weather}) => {
-    //console.log(`forecast ${weather}`)
+    console.log(`forecast ${weather}`)
 
     const renderItem = ({item}) => (
         <ListItem
@@ -24,6 +23,7 @@ const Forecast = ({weather}) => {
                 data={weather}
                 renderItem={renderItem}
             />
+
         </SafeAreaView>
     )
 }
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontSize: 30,
+        fontSize: 35,
         fontWeight: '600',
         color: 'white',
         alignSelf: 'center'  
