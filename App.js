@@ -21,7 +21,7 @@ export default function App() {
     )
   }
 
-  if (weather)
+  if (weather && weather.list)
   {
     return (
       <NavigationContainer  style= {styles.container}>

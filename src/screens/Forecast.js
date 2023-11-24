@@ -2,14 +2,16 @@ import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, FlatList} from "react-native";
 import ListItem from "../components/listItem";
 import moment from "moment";
+import { weatherType } from "../utilities/weatherType";
 
 const Forecast = ({weather}) => {
     console.log(`forecast ${weather}`)
 
     const renderItem = ({item}) => (
         <ListItem
-            day = {moment(item.dt).format('dddd')}
-            date = {moment(item.dt).format('MMM Do')}
+            icon = {weatherType[item.weather[0].main]?.icon}
+            day = {moment(item.dt_txt).format('MMM Do')}
+            date = {moment(item.dt_txt).format('h:mm a')}
             temp = {item.main.temp}
         />
     )

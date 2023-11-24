@@ -4,7 +4,7 @@ import ColumnTxt from "../components/ColumnTxt";
 import { Feather } from '@expo/vector-icons';
 
 const ListItem = (props) => {
-    const {day, date, temp} = props
+    const {day, date, temp,icon} = props
     return (
     <View style = {styles.row}>
         <ColumnTxt
@@ -15,7 +15,7 @@ const ListItem = (props) => {
 
         <Text style = {styles.temp}>{`${temp}°`}</Text>
 
-        <Feather style={styles.icon} name={'sun'} size={60} color={'white'}/>
+        <Feather style={styles.icon} name={icon} size={60} color={'white'}/>
 
     </View>       
     )

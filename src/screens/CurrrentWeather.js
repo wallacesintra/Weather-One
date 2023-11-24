@@ -3,31 +3,38 @@ import { View, Text, StyleSheet,SafeAreaView } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
 import moment from "moment";
+import { weatherType } from "../utilities/weatherType";
 
 const CurrentWeather = ({ weather }) => {
-    // console.log(`current ${weather.city}`)
-    const {list,city,} = weather
+    //console.log(`current ${weather.city}`)
+    const {list,city} = weather
+    //console.log(`maincurrent ${Object.keys(list)}`)
     return(
         <SafeAreaView style ={styles.container}>
             <Text style= {styles.cityName}>{`${city.name}`}</Text>
-            <Text style={styles.time}>{moment(list[0].dt).format('dddd')}</Text>
+            <Text style={styles.time}>{moment(list[0].dt_txt).format('dddd MMMM Do')}</Text>
 
 
-            <Feather style={styles.icon} name={'sun'} size={250} color={'white'}/>
+            <Feather 
+                style={styles.icon} 
+                name={weatherType[list[0].weather[0].main]?.icon} 
+                size={250} 
+                color={'white'}
+            />
             <View style = {styles.row}>
                 <ColumnTxt
-                    txtTop = {'temp'}
-                    txtBottom = {list.main.temp}
+                    txtTop = {'Temp'}
+                    txtBottom = {`${list[0].main.temp} °`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Wind'}
-                    txtBottom = {list.wind.speed}
+                    txtBottom = {`${list[0].wind.speed} km/h`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Humidity'}
-                    txtBottom = {list.main.humidity}
+                    txtBottom = {`${list[0].main.humidity} %`}
                 />                           
             </View>
 
