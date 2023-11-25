@@ -1,18 +1,19 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Text, FlatList} from "react-native";
+import { View, StyleSheet, SafeAreaView, Text,FlatList, StatusBar} from "react-native";
+// import { FlashList } from "@shopify/flash-list";
 import ListItem from "../components/listItem";
 import moment from "moment";
 import { weatherType } from "../utilities/weatherType";
 
 const Forecast = ({weather}) => {
-    console.log(`forecast ${weather}`)
+    //console.log(`forecast ${weather}`)
 
     const renderItem = ({item}) => (
         <ListItem
             icon = {weatherType[item.weather[0].main]?.icon}
             day = {moment(item.dt_txt).format('MMM Do')}
-            date = {moment(item.dt_txt).format('h:mm a')}
-            temp = {item.main.temp}
+            date = {moment(item.dt_txt).format('H:mm')}
+            temp = {Math.round(item.main.temp)}
         />
     )
 
@@ -22,6 +23,7 @@ const Forecast = ({weather}) => {
             <FlatList
                 data={weather}
                 renderItem={renderItem}
+                //estimatedItemSize={70}
             />
 
         </SafeAreaView>
@@ -29,13 +31,15 @@ const Forecast = ({weather}) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    container: {  
         flex: 1,
         backgroundColor: '#003049',
         alignItems: 'center'
     },
     title: {
         fontSize: 35,
+        margin: 5,
+        marginTop: 30,
         fontWeight: '600',
         color: 'white',
         alignSelf: 'center'  
