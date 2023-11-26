@@ -2,6 +2,7 @@ import react from "react";
 import { StyleSheet } from "react-native";
 import CurrentWeather from "../screens/CurrrentWeather";
 import Forecast from "../screens/Forecast";
+import Search from "../screens/Search";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -41,6 +42,22 @@ const Tabs = ({ weather }) => {
             }}
           >
             {() => <CurrentWeather weather= {weather}/>}
+          </Tab.Screen>
+
+          <Tab.Screen
+            name={'Search'}
+            options={{ 
+              headerShown: false,
+              title: '',
+              tabBarIcon: ({ focused }) => 
+              <Feather 
+                name={"search"} 
+                size={focused ? 30 : 25 } 
+                color={focused ? 'white' : 'grey'}
+              />
+            }}
+          >
+            {() => <Search />}
           </Tab.Screen>
   
           <Tab.Screen
