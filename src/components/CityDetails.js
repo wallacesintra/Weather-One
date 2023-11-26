@@ -1,13 +1,14 @@
 import react from "react";
-import { View, Text,StyleSheet} from "react-native";
+import { View, Text,StyleSheet,} from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
 
 const CityDetails = (props) => {
 
-    const {icon,temp,condition,sea_level,wind_speed,humidity} = props
+    const {cityTitle,icon,temp,condition,sea_level,wind_speed,humidity} = props
     return (
         <View style = {styles.cityWrapper}>
+            <Text style= {styles.cityTitle}>{cityTitle}</Text>
             <Feather
                 name = {icon}
                 size={180}
@@ -49,6 +50,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: "90%",
         height: 'auto'
+    },
+    cityTitle: {
+        color: 'white',
+        fontSize: 30,
+        fontWeight: 'bold',
+        alignSelf: 'center'
     },
     cityTemp: {
         fontWeight: 'bold',
