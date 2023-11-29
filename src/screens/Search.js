@@ -8,17 +8,19 @@ import SearchLoad from "../components/Searchload";
 
 
 const Search = () => {
-    const [cityName, setCityName] = useState('')
+    const [cityName, setCityName] = useState('Nairobi')
     const [cityData, setCityData] = useState([])
     const [error, SetError] = useState(null)
     const [loading, setLoading] = useState(false)
 
     const fetchCityData = async () => {
         try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric`)
+            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric&limit=5`)
             const data = await res.json()
-            setCityData(data)
-            setLoading(true)
+            if (res.ok){
+                setCityData(data)
+                setLoading(true)
+            }
 
         } catch (err) {
             SetError(err)
@@ -70,7 +72,7 @@ const Search = () => {
                     icon = {weatherType[list[0].weather[0].main]?.icon}
                     temp = {list[0].main.temp}
                     condition = {list[0].weather[0].main}
-                    sea_level = {'1020'}
+                    sea_level = {list[0].main.sea_level}
                     wind_speed = {list[0].wind.speed}
                     humidity = {list[0].main.humidity}
                 />:
