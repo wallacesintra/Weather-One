@@ -23,7 +23,7 @@ const Search = () => {
           const data = await res.json()
           setWeather(data);
           console.log(Object.keys(data))
-          console.log(data)
+        //   console.log(data)
         } catch (error) {
           console.error('Error fetching weather:', error);
         }

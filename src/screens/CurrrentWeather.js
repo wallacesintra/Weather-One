@@ -1,4 +1,4 @@
-import React, {useState, useEffect}from "react";
+import React, {useState, useEffect, memo}from "react";
 import { View, Text, StyleSheet,SafeAreaView, FlatList} from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { Feather } from '@expo/vector-icons';
@@ -119,4 +119,4 @@ const styles = StyleSheet.create({
     }
 
 })
-export default CurrentWeather
+export default memo(CurrentWeather)
