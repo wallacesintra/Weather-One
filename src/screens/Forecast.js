@@ -1,4 +1,4 @@
-import React from "react";
+import React,{memo} from "react";
 import { View, StyleSheet, SafeAreaView, Text,FlatList, StatusBar} from "react-native";
 // import { FlashList } from "@shopify/flash-list";
 import ListItem from "../components/listItem";
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
     },
     
 })
-export default Forecast
+export default memo(Forecast)

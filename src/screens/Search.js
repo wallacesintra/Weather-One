@@ -8,40 +8,28 @@ import SearchLoad from "../components/Searchload";
 
 
 const Search = () => {
-    const [cityName, setCityName] = useState('Nairobi')
-    const [cityData, setCityData] = useState([])
-    const [error, SetError] = useState(null)
-    const [loading, setLoading] = useState(false)
-
-    const fetchCityData = async () => {
-        try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${WEATHER_API_KEY}&units=metric&limit=5`)
-            const data = await res.json()
-            if (res.ok){
-                setCityData(data)
-                setLoading(true)
-            }
-
-        } catch (err) {
-            SetError(err)
-            console.log(err)
-        }
-    }
-
+    const [city, setCity] = useState('');
+    const [weather, setWeather] = useState(null);
+  
     useEffect(() => {
-        ;(async() => {
-            await fetchCityData()
-        })()
-    },[cityName, error])
-
-    if (cityData.list)
-    {
-        console.log(Object.keys(cityData))
-        console.log(cityData.cod)
-        
-    }
-    
-    const {list, city} = cityData
+      const getWeather = async () => {
+        try {
+          if (city.trim() === '') {
+            setWeather(null);
+            return;
+          }
+          
+          const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`)
+          const data = await res.json()
+          setWeather(data);
+          console.log(Object.keys(data))
+        //   console.log(data)
+        } catch (error) {
+          console.error('Error fetching weather:', error);
+        }
+      };
+      getWeather();
+    }, [city]);
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Search location</Text>
@@ -57,27 +45,32 @@ const Search = () => {
                     color="white" 
                 /> 
                 <TextInput
+                    style={styles.txtInput}
                     placeholder= {'Search'}
                     placeholderTextColor = 'white'
                     cursorColor = 'white' 
-                    onChange={(newCity) => setCityName(newCity)}
-                    value={cityName}
-                    
+                    value={city}
+                    onChangeText={(text) => setCity(text)}
                     // autoCapitalize='words'
                 />                
             </View>
-            {loading?
+
+            {weather && (
+                weather.message !== "city not found"?
                 <CityDetails
-                    cityTitle = {city.name}
-                    icon = {weatherType[list[0].weather[0].main]?.icon}
-                    temp = {list[0].main.temp}
-                    condition = {list[0].weather[0].main}
-                    sea_level = {list[0].main.sea_level}
-                    wind_speed = {list[0].wind.speed}
-                    humidity = {list[0].main.humidity}
+                    cityTitle = {weather.name}
+                    icon = {weatherType[weather.weather[0].main]?.icon}
+                    temp = {weather.main.temp}
+                    condition = {weather.weather[0].main}
+                    pressure = {weather.main.pressure}
+                    wind_speed = {weather.wind.speed}
+                    humidity = {weather.main.humidity}
+
                 />:
-                <SearchLoad/>
-            }
+                <SearchLoad
+                    txt = {city === ''? 'Search a City/Area': 'Area not Found'}
+                />
+            )}
         </SafeAreaView>
     )
 }
@@ -110,6 +103,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#003869',
         flexDirection: 'row',
         width: '90%', 
+    },
+    txtInput: {
+        color: 'white'
     },
     icon: {
         padding: 7

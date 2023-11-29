@@ -6,6 +6,7 @@ import Search from "../screens/Search";
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import TestInput from "./TestInput";
 
 
 

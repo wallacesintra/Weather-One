@@ -3,10 +3,11 @@ import { View, Text,StyleSheet } from "react-native";
 import { FontAwesome5 } from '@expo/vector-icons';
 
 
-const SearchLoad = () => {
+const SearchLoad = (props) => {
+    const {txt} = props
     return(
         <View >
-            <Text style={styles.searchTxt}>search a city</Text>
+            <Text style={styles.searchTxt}>{txt}</Text>
             <FontAwesome5 style={styles.iconGlobe} name="globe-africa" size={100} color="white" />
         </View>
     )
