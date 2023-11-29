@@ -14,23 +14,23 @@ const CityDetails = (props) => {
                 size={180}
                 color={'white'}
             />
-            <Text style = {styles.cityTemp}>{temp}</Text>
+            <Text style = {styles.cityTemp}>{`${Math.round(temp)}°`}</Text>
             <Text style = {styles.cityCondition}>{condition}</Text>
 
             <View style= {styles.cityDetails}>
                 <ColumnTxt
                     txtTop = {'Sea Level'}
-                    txtBottom = {sea_level}
+                    txtBottom = {`${Math.round(sea_level)} m`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Wind'}
-                    txtBottom = {wind_speed}
+                    txtBottom = {`${Math.round(wind_speed)} km/h`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Humidity'}
-                    txtBottom = {humidity}
+                    txtBottom = {`${Math.round(humidity)} %`}
                 />
             </View>
 
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     cityTemp: {
+        alignSelf: 'center',
         fontWeight: 'bold',
         fontSize: 40,
         padding: 10,

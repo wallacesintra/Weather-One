@@ -17,7 +17,7 @@ const ListItemSmall = (props) => {
             />
             <ColumnTxt
                 txtTop = {`${txtTime}`}
-                txtBottom = {`${txtTemp} °`}
+                txtBottom = {`${Math.round(txtTemp)} °`}
             />
         </View>      
     )

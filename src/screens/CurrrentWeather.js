@@ -52,17 +52,17 @@ const CurrentWeather = ({ weather }) => {
             <View style = {styles.row}>
                 <ColumnTxt
                     txtTop = {'Temp'}
-                    txtBottom = {`${list[0].main.temp} °`}
+                    txtBottom = {`${Math.round(list[0].main.temp)} °`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Wind'}
-                    txtBottom = {`${list[0].wind.speed} km/h`}
+                    txtBottom = {`${Math.round(list[0].wind.speed)} km/h`}
                 />
 
                 <ColumnTxt
                     txtTop = {'Humidity'}
-                    txtBottom = {`${list[0].main.humidity} %`}
+                    txtBottom = {`${Math.round(list[0].main.humidity)} %`}
                 />                           
             </View>
 
