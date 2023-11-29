@@ -5,7 +5,7 @@ import ColumnTxt from "../components/ColumnTxt";
 
 const CityDetails = (props) => {
 
-    const {cityTitle,icon,temp,condition,sea_level,wind_speed,humidity} = props
+    const {cityTitle,icon,temp,condition,pressure,wind_speed,humidity} = props
     return (
         <View style = {styles.cityWrapper}>
             <Text style= {styles.cityTitle}>{cityTitle}</Text>
@@ -19,8 +19,8 @@ const CityDetails = (props) => {
 
             <View style= {styles.cityDetails}>
                 <ColumnTxt
-                    txtTop = {'Sea Level'}
-                    txtBottom = {`${Math.round(sea_level)} m`}
+                    txtTop = {'Pressure'}
+                    txtBottom = {`${Math.round(pressure)} hPa`}
                 />
 
                 <ColumnTxt
