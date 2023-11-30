@@ -8,8 +8,6 @@ import { Feather } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import TestInput from "./TestInput";
 
-
-
 const Tab = createBottomTabNavigator()
 
 const Tabs = ({ weather }) => {
