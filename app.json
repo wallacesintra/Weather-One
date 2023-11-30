@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/appIcon.jpeg",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.wallace_sintra.sintra"
     },
     "web": {
       "favicon": "./assets/favicon.png"
