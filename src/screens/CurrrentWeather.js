@@ -6,6 +6,7 @@ import ColumnTxt from "../components/ColumnTxt";
 import moment from "moment";
 import { weatherType } from "../utilities/weatherType";
 import ListItemSmall from "../components/ListItemSmall";
+import LinearGradient from "react-native-linear-gradient";
 
 
 const CurrentWeather = ({ weather }) => {
@@ -39,42 +40,42 @@ const CurrentWeather = ({ weather }) => {
 
     return(
         <SafeAreaView style ={styles.container}>
-            <Text style= {styles.cityName}>{`${city.name}`}</Text>
-            <Text style={styles.time}>{moment(list[0].dt_txt).format('dddd, MMM Do YYYY')}</Text>
+                <Text style= {styles.cityName}>{`${city.name}`}</Text>
+                <Text style={styles.time}>{moment(list[0].dt_txt).format('dddd, MMM Do YYYY')}</Text>
 
 
-            <Feather 
-                style={styles.icon} 
-                name={weatherType[list[0].weather[0].main]?.icon} 
-                size={210} 
-                color={'white'}
-            />
-            <View style = {styles.row}>
-                <ColumnTxt
-                    txtTop = {'Temp'}
-                    txtBottom = {`${Math.round(list[0].main.temp)} °`}
+                <Feather 
+                    style={styles.icon} 
+                    name={weatherType[list[0].weather[0].main]?.icon} 
+                    size={210} 
+                    color={'white'}
                 />
+                <View style = {styles.row}>
+                    <ColumnTxt
+                        txtTop = {'Temp'}
+                        txtBottom = {`${Math.round(list[0].main.temp)} °`}
+                    />
 
-                <ColumnTxt
-                    txtTop = {'Wind'}
-                    txtBottom = {`${Math.round(list[0].wind.speed)} km/h`}
-                />
+                    <ColumnTxt
+                        txtTop = {'Wind'}
+                        txtBottom = {`${Math.round(list[0].wind.speed)} km/h`}
+                    />
 
-                <ColumnTxt
-                    txtTop = {'Humidity'}
-                    txtBottom = {`${Math.round(list[0].main.humidity)} %`}
-                />                           
-            </View>
+                    <ColumnTxt
+                        txtTop = {'Humidity'}
+                        txtBottom = {`${Math.round(list[0].main.humidity)} %`}
+                    />                           
+                </View>
 
-            <View style={styles.todayWrapper}>
-                <Text style = {styles.today}> Today </Text>
-                <FlatList
-                    horizontal = {true}
-                    data= {filteredData}
-                    renderItem={renderItem}
-                    
-                />
-            </View>
+                <View style={styles.todayWrapper}>
+                    <Text style = {styles.today}> Today </Text>
+                    <FlatList
+                        horizontal = {true}
+                        data= {filteredData}
+                        renderItem={renderItem}
+                        
+                    />
+                </View>
 
         </SafeAreaView>
     )

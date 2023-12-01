@@ -16,10 +16,12 @@ export const useGetWeather = () => {
       const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric&&limit=100`)
       const data = await res.json()
       setWeather(data)
-      setLoading(false)      
     } catch (err) {
       setError('could not fetch weather')
     } 
+    finally {
+      setLoading(false)      
+    }
   }
 
   useEffect(() => {
@@ -35,6 +37,7 @@ export const useGetWeather = () => {
       setLon(location.coords.longitude)
       await fetchWeatherData()
     })()
-  }, [lat,lon])
+  }, [lon])
   return [loading, error, weather]
 }
+

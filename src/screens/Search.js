@@ -22,8 +22,8 @@ const Search = () => {
           const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`)
           const data = await res.json()
           setWeather(data);
-          console.log(Object.keys(data))
-        //   console.log(data)
+          //console.log(Object.keys(data))
+          //console.log(data)
         } catch (error) {
           console.error('Error fetching weather:', error);
         }
@@ -51,7 +51,6 @@ const Search = () => {
                     cursorColor = 'white' 
                     value={city}
                     onChangeText={(text) => setCity(text)}
-                    // autoCapitalize='words'
                 />                
             </View>
 
