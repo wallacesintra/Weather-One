@@ -4,7 +4,7 @@
     "slug": "sintra",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/appIcon.jpeg",
+    "icon": "./assets/appIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/appIcon.jpeg",
+        "foregroundImage": "./assets/appIcon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.wallace_sintra.sintra"
