@@ -1,5 +1,5 @@
 import React, {useState, useEffect, memo}from "react";
-import { View, Text, StyleSheet,SafeAreaView, FlatList} from "react-native";
+import { View, Text, StyleSheet,SafeAreaView, FlatList,Image} from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
@@ -31,24 +31,21 @@ const CurrentWeather = ({ weather }) => {
 
     const renderItem = ({item}) => (
         <ListItemSmall
-            icon = {weatherType[item.weather[0].main]?.icon}
+            icon = {weatherType[item.weather[0].main]?.colored}
             txtTime = {moment(item.dt_txt).format('H:mm')}
             txtTemp = {item.main.temp}
         />
     )   
     
-
     return(
         <SafeAreaView style ={styles.container}>
                 <Text style= {styles.cityName}>{`${city.name}`}</Text>
-                <Text style={styles.time}>{moment(list[0].dt_txt).format('dddd, MMM Do YYYY')}</Text>
+                <Text style={styles.time}>{moment(list[0].dt_txt).format(' MMM Do YYYY')}</Text>
 
-
-                <Feather 
-                    style={styles.icon} 
-                    name={weatherType[list[0].weather[0].main]?.icon} 
-                    size={210} 
-                    color={'white'}
+                <Image
+                    source={weatherType[list[0].weather[0].main]?.colored}
+                    //source={require('./rain.png')}
+                    style={{width: 210,height: 210, alignSelf: 'center',margin: 40}}
                 />
                 <View style = {styles.row}>
                     <ColumnTxt
@@ -72,8 +69,7 @@ const CurrentWeather = ({ weather }) => {
                     <FlatList
                         horizontal = {true}
                         data= {filteredData}
-                        renderItem={renderItem}
-                        
+                        renderItem={renderItem}   
                     />
                 </View>
 
@@ -83,21 +79,22 @@ const CurrentWeather = ({ weather }) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#003049',
+        backgroundColor: '#010033',
         flex: 1, 
     },
     cityName: {
         color: 'white',
-        marginTop: 30,
+        marginTop: 40,
         margin: 5,
-        fontSize: 35,
-        fontWeight: '900',
+        fontSize: 30,
+        fontWeight: '800',
         alignSelf: 'center'
     },
     time: {
         color: 'white',
         padding: 10,
         fontSize: 15,
+        fontWeight: '300',
         alignSelf: 'center'
     },
     icon: {
@@ -107,12 +104,12 @@ const styles = StyleSheet.create({
     row: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
     }, 
     today: {
         color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold',
+        fontSize: 23,
+        fontWeight: '600',
         margin: 10
     },
     todayWrapper: {

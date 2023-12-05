@@ -1,5 +1,5 @@
 import react from "react";
-import {View, StyleSheet, Text} from "react-native";
+import {View, StyleSheet, Text,Image} from "react-native";
 import ColumnTxt from "../components/ColumnTxt";
 import { Feather } from '@expo/vector-icons';
 
@@ -15,7 +15,8 @@ const ListItem = (props) => {
 
         <Text style = {styles.temp}>{`${temp}°`}</Text>
 
-        <Feather style={styles.icon} name={icon} size={60} color={'white'}/>
+        {/* <Feather style={styles.icon} name={icon} size={60} color={'white'}/> */}
+        <Image source = {icon} style={styles.icon} />
 
     </View>       
     )
@@ -23,30 +24,33 @@ const ListItem = (props) => {
 
 const styles = StyleSheet.create({
     row: {
-        width: "95%",
-        backgroundColor: '#003869',
+        width: 'auto',
+        backgroundColor: '#181562',
         borderRadius: 10,
         margin: 10,
         padding: 5,
         flexDirection: 'row',
-        gap: 30,
-        justifyContent: 'space-around'
+        gap: 34,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
     },
     time: {
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 15
+        padding: 10
     },
     temp: {
-        padding: 15,
+        padding: 10,
         alignSelf: 'center',
         color: 'white',
-        fontSize: 45,
-        fontWeight: 'bold'
+        fontSize: 40,
+        fontWeight: '600'
     },
     icon: {
-        padding: 15,
-        alignSelf: 'center'
+        padding: 10,
+        alignSelf: 'center',
+        width: 60,
+        height: 60
     }    
 })
 

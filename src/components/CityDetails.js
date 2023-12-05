@@ -1,5 +1,5 @@
 import react from "react";
-import { View, Text,StyleSheet,} from "react-native";
+import { View, Text,StyleSheet,Image} from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "../components/ColumnTxt";
 
@@ -9,10 +9,14 @@ const CityDetails = (props) => {
     return (
         <View style = {styles.cityWrapper}>
             <Text style= {styles.cityTitle}>{cityTitle}</Text>
-            <Feather
+            {/* <Feather
                 name = {icon}
                 size={180}
                 color={'white'}
+            /> */}
+            <Image
+                source = {icon}
+                style = {{width: 180, height: 180, alignSelf: 'center', margin: 15}}
             />
             <Text style = {styles.cityTemp}>{`${Math.round(temp)}°`}</Text>
             <Text style = {styles.cityCondition}>{condition}</Text>

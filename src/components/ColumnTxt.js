@@ -15,7 +15,7 @@ const ColumnTxt = (props) => {
 
 const styles = StyleSheet.create({
     columnTexts: {
-        margin: 15,   
+        margin: 10,   
     },
     txt: {
         color: 'white',
