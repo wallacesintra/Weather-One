@@ -1,5 +1,5 @@
 import react from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { Feather } from '@expo/vector-icons';
 import ColumnTxt from "./ColumnTxt";
 
@@ -9,11 +9,15 @@ const ListItemSmall = (props) => {
 
     return (
         <View style={styles.smallItem}>
-            <Feather
+            {/* <Feather
                 style = {styles.iconLittle}
                 name = {icon}
-                size={50}
+                size={40}
                 color={'white'}
+            /> */}
+            <Image
+                source={icon}
+                style = {styles.iconLittle}
             />
             <ColumnTxt
                 txtTop = {`${txtTime}`}
@@ -28,14 +32,16 @@ const styles = StyleSheet.create({
         margin: 10,
         alignItems: 'center',
         borderRadius: 10,
-        width: 160,
+        width: 130,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: '#003869'
+        backgroundColor: '#181562'
     },
     iconLittle: {
         alignSelf: 'center',
-        padding: 10
+        padding: 5,
+        width: 40,
+        height: 40
         
     }
 })

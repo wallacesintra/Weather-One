@@ -1,5 +1,5 @@
 import react,{useState, useEffect} from "react";
-import { View,Text,SafeAreaView,StyleSheet,TextInput, } from "react-native";
+import { View,Text,SafeAreaView,StyleSheet,TextInput, Image} from "react-native";
 import { Feather } from '@expo/vector-icons';
 import CityDetails from "../components/CityDetails";
 import { WEATHER_API_KEY } from '@env'
@@ -44,6 +44,7 @@ const Search = () => {
                     size={25} 
                     color="white" 
                 /> 
+
                 <TextInput
                     style={styles.txtInput}
                     placeholder= {'Search'}
@@ -58,7 +59,7 @@ const Search = () => {
                 weather.message !== "city not found"?
                 <CityDetails
                     cityTitle = {weather.name}
-                    icon = {weatherType[weather.weather[0].main]?.icon}
+                    icon = {weatherType[weather.weather[0].main]?.colored}
                     temp = {weather.main.temp}
                     condition = {weather.weather[0].main}
                     pressure = {weather.main.pressure}
@@ -77,7 +78,7 @@ const Search = () => {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 30,
-        backgroundColor: '#003049',
+        backgroundColor: '#010033',
         flex: 1,
         alignItems: 'center'
     },
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     txtInputWrapper: {
         borderRadius: 10,
         padding: 15,
-        backgroundColor: '#003869',
+        backgroundColor: '#181562',
         flexDirection: 'row',
         width: '90%', 
     },

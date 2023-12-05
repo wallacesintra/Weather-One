@@ -18,11 +18,11 @@ const Tabs = ({ weather }) => {
             tabBarActiveTintColor: 'white',
             tabBarInactiveTintColor: 'grey',
             tabBarStyle: {
-              backgroundColor: '#003049',
+              backgroundColor: '#010033',
               justifyContent: 'center',
               alignItems: 'center',
               padding: 5,
-              borderTopColor: '#003049'
+              borderTopColor: '#010033'
             },
           }}   
         >

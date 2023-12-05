@@ -10,7 +10,7 @@ const Forecast = ({weather}) => {
 
     const renderItem = ({item}) => (
         <ListItem
-            icon = {weatherType[item.weather[0].main]?.icon}
+            icon = {weatherType[item.weather[0].main]?.colored}
             day = {moment(item.dt_txt).format('MMM Do')}
             date = {moment(item.dt_txt).format('H:mm')}
             temp = {Math.round(item.main.temp)}
@@ -33,7 +33,7 @@ const Forecast = ({weather}) => {
 const styles = StyleSheet.create({
     container: {  
         flex: 1,
-        backgroundColor: '#003049',
+        backgroundColor: '#010033',
         alignItems: 'center'
     },
     title: {
