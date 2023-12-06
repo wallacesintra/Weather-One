@@ -25,7 +25,7 @@ const ListItem = (props) => {
 const styles = StyleSheet.create({
     row: {
         width: 'auto',
-        backgroundColor: '#181562',
+        backgroundColor: '#14125C',
         borderRadius: 10,
         margin: 10,
         padding: 5,
@@ -43,11 +43,11 @@ const styles = StyleSheet.create({
         padding: 10,
         alignSelf: 'center',
         color: 'white',
-        fontSize: 40,
-        fontWeight: '600'
+        fontSize: 43,
+        fontWeight: '500'
     },
     icon: {
-        padding: 10,
+        margin: 10,
         alignSelf: 'center',
         width: 60,
         height: 60

@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         width: 130,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: '#181562'
+        backgroundColor: '#14125C'
     },
     iconLittle: {
         alignSelf: 'center',

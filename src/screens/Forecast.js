@@ -6,12 +6,12 @@ import moment from "moment";
 import { weatherType } from "../utilities/weatherType";
 
 const Forecast = ({weather}) => {
-    //console.log(`forecast ${weather}`)
-
+    // console.log(`forecast ${weather}`)
+    console.log('forecast')
     const renderItem = ({item}) => (
         <ListItem
             icon = {weatherType[item.weather[0].main]?.colored}
-            day = {moment(item.dt_txt).format('MMM Do')}
+            day = {moment(item.dt_txt).format('dddd')}
             date = {moment(item.dt_txt).format('H:mm')}
             temp = {Math.round(item.main.temp)}
         />
@@ -25,20 +25,20 @@ const Forecast = ({weather}) => {
                 renderItem={renderItem}
                 //estimatedItemSize={70}
             />
-
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {  
+    container: { 
+        paddingTop: 30, 
         flex: 1,
         backgroundColor: '#010033',
         alignItems: 'center'
     },
     title: {
-        fontSize: 30,
-        margin: 5,
+        fontSize: 23,
+        marginBottom: 20,
         marginTop: 30,
         fontWeight: '600',
         color: 'white',

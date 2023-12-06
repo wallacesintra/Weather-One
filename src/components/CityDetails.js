@@ -9,14 +9,10 @@ const CityDetails = (props) => {
     return (
         <View style = {styles.cityWrapper}>
             <Text style= {styles.cityTitle}>{cityTitle}</Text>
-            {/* <Feather
-                name = {icon}
-                size={180}
-                color={'white'}
-            /> */}
+
             <Image
                 source = {icon}
-                style = {{width: 180, height: 180, alignSelf: 'center', margin: 15}}
+                style = {{width: 180, height: 180, alignSelf: 'center', margin: 10}}
             />
             <Text style = {styles.cityTemp}>{`${Math.round(temp)}°`}</Text>
             <Text style = {styles.cityCondition}>{condition}</Text>
@@ -37,10 +33,7 @@ const CityDetails = (props) => {
                     txtBottom = {`${Math.round(humidity)} %`}
                 />
             </View>
-
         </View>
-
-
     )
 }
 
@@ -49,7 +42,6 @@ const styles = StyleSheet.create({
         padding: 10,
         margin: 20,
         borderRadius: 10,
-        //backgroundColor: '#1C5C99',
         justifyContent: 'center',
         alignItems: 'center',
         width: "90%",
@@ -64,12 +56,13 @@ const styles = StyleSheet.create({
     cityTemp: {
         alignSelf: 'center',
         fontWeight: 'bold',
-        fontSize: 40,
+        fontSize: 45,
         padding: 10,
         color: 'white'
     },
     cityCondition: {
         fontSize: 25,
+        fontWeight: '400',
         color: 'white'
     },
     cityDetails: {

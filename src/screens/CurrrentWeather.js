@@ -13,6 +13,8 @@ const CurrentWeather = ({ weather }) => {
     const {list,city} = weather
     const [filteredData, setFilterData] = useState([])
     const [time, setTime] = useState(nowTime);
+    
+    console.log('Current weather')
 
     const nowTime = moment(new Date()).format('MMM Do YY')
 

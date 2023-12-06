@@ -1,5 +1,5 @@
 import react,{useState, useEffect} from "react";
-import { View,Text,SafeAreaView,StyleSheet,TextInput, Image} from "react-native";
+import { View,Text,SafeAreaView,StyleSheet,TextInput, ScrollView} from "react-native";
 import { Feather } from '@expo/vector-icons';
 import CityDetails from "../components/CityDetails";
 import { WEATHER_API_KEY } from '@env'
@@ -10,6 +10,7 @@ import SearchLoad from "../components/Searchload";
 const Search = () => {
     const [city, setCity] = useState('');
     const [weather, setWeather] = useState(null);
+    console.log('search')
   
     useEffect(() => {
       const getWeather = async () => {
@@ -55,7 +56,7 @@ const Search = () => {
                 />                
             </View>
 
-            {weather && (
+            {weather && 
                 weather.message !== "city not found"?
                 <CityDetails
                     cityTitle = {weather.name}
@@ -65,12 +66,11 @@ const Search = () => {
                     pressure = {weather.main.pressure}
                     wind_speed = {weather.wind.speed}
                     humidity = {weather.main.humidity}
-
                 />:
                 <SearchLoad
-                    txt = {city === ''? 'Search a City/Area': 'Area not Found'}
+                    txt = {city === ''? 'Search the area or city': 'Area not Found'}
                 />
-            )}
+            }
         </SafeAreaView>
     )
 }

@@ -8,7 +8,7 @@ const SearchLoad = (props) => {
     return(
         <View >
             <Text style={styles.searchTxt}>{txt}</Text>
-            <FontAwesome5 style={styles.iconGlobe} name="globe-africa" size={100} color="white" />
+            <FontAwesome5 style={styles.iconGlobe} name="globe-africa" size={150} color="white" />
         </View>
     )
 }
@@ -17,12 +17,13 @@ const styles = StyleSheet.create({
     searchTxt: {
         padding: 20,
         fontSize: 20,
-        fontWeight: '600',
+        fontWeight: '400',
         color: 'white',
         alignSelf: 'center'
     },
     iconGlobe: {
-        alignSelf: 'center'
+        alignSelf: 'center',
+        opacity: 0.8
     }
 })
 

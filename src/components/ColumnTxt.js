@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
         padding: 3
     },
     top:{
-        fontSize: 18,
-        fontWeight: '700',
+        fontSize: 15,
+        fontWeight: '300',
     },
     bottom: {
-        fontWeight: '400',
-        fontSize: 15,
+        fontWeight: '600',
+        fontSize: 17,
     }
 })
 
