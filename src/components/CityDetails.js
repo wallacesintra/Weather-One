@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: "90%",
-        height: 'auto'
+        height: 'auto',
+        overflow: 'scroll'
     },
     cityTitle: {
         color: 'white',

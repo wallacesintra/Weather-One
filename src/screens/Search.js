@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         backgroundColor: '#010033',
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow: 'scroll'
     },
     title: {
         color: 'white',
